@@ -1,6 +1,6 @@
 {
   "name": "dockerize-nginx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dockerize SPA application and run it on Nginx.",
   "author": "xezzon",
   "bin": {
@@ -14,7 +14,7 @@
     "nginx"
   ],
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "yargs": "^17.7.2"
   }
 }
