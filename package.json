@@ -1,0 +1,20 @@
+{
+  "name": "dockerize-nginx",
+  "version": "1.0.0",
+  "description": "Dockerize SPA application and run it on Nginx.",
+  "author": "xezzon",
+  "bin": {
+    "dockerize": "./index.cjs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "docker",
+    "nginx"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "yargs": "^17.7.2"
+  }
+}
