@@ -1,7 +1,9 @@
 ## Feature
 
-- Packaging application as Docker image based on Nginx.
-- Generate a .dockerignore file in the root directory.
+- Packaging application as Docker image based on [Nginx](https://hub.docker.com/_/nginx).
+- Generate a [.dockerignore](https://docs.docker.com/engine/reference/builder/#dockerignore-file) file in the root directory.
+- Support for [Browser Router](https://reactrouter.com/en/main/router-components/browser-router).
+- Support for [gzip_static](https://nginx.org/en/docs/http/ngx_http_gzip_static_module.html).
 
 ## Prerequisite
 
