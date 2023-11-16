@@ -5,7 +5,7 @@ const { hideBin } = require('yargs/helpers')
 
 const packageName = process.env.npm_package_name.replace('@', '')
 const packageVersion = process.env.npm_package_version
-const { distDir, imageName, writeDockerIgnore } = yargs(hideBin(process.argv))
+const { distDir, imageName, writeDockerIgnore, build: building } = yargs(hideBin(process.argv))
   .option('distDir', {
     alias: 'o',
     type: 'string',
@@ -23,6 +23,12 @@ const { distDir, imageName, writeDockerIgnore } = yargs(hideBin(process.argv))
     type: 'boolean',
     default: false,
     describe: 'Whether to generate a .dockerignore file in the root directory'
+  })
+  .option('build', {
+    alias: 'b',
+    type: 'boolean',
+    default: true,
+    describe: 'Set to false, only files will be created without building a Docker image.',
   })
   .parse()
 console.debug(`dockerize-nginx argv: ${JSON.stringify({
@@ -65,6 +71,7 @@ const dockerIgnore = `
 !${distDir}
 !${dockerPath}
 `.trim()
+
 if (!fs.existsSync(dockerPath)) {
   fs.mkdirSync(dockerPath)
 }
@@ -74,6 +81,8 @@ if (writeDockerIgnore) {
   fs.writeFileSync(dockerIgnorePath, dockerIgnore)
 }
 
-const dockerBuildCmd = `docker build -t ${imageName} -f ${dockerfilePath} .`
-console.log(dockerBuildCmd)
-execSync(dockerBuildCmd, { stdio: 'inherit' })
+if (building) {
+  const dockerBuildCmd = `docker build -t ${imageName} -f ${dockerfilePath} .`
+  console.log(dockerBuildCmd)
+  execSync(dockerBuildCmd, { stdio: 'inherit' })
+}

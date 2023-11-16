@@ -35,8 +35,9 @@ It will copy the contents of the `dist/` directory to the `/usr/share/nginx/html
 
 These arguments are supported on the command line:
 
-| argument          | alias | default                                      | description                                                    |
-| ----------------- | ----- | -------------------------------------------- | -------------------------------------------------------------- |
-| distDir           | o     | dist                                         | Output directory of SPA application                            |
-| imageName         | t     | \${npm_package_name}:\${npm_package_version} | Name and optionally a container tag (format: "name:tag")       |
-| writeDockerIgnore | w     | false                                        | Whether to generate a .dockerignore file in the root directory |
+| argument          | alias | default                                      | description                                                               |
+| ----------------- | ----- | -------------------------------------------- | ------------------------------------------------------------------------- |
+| distDir           | o     | dist                                         | Output directory of SPA application                                       |
+| imageName         | t     | \${npm_package_name}:\${npm_package_version} | Name and optionally a container tag (format: "name:tag")                  |
+| writeDockerIgnore | w     | false                                        | Whether to generate a .dockerignore file in the root directory            |
+| build             | b     | true                                         | Set to `false`, only files will be created without building a Docker image. |
